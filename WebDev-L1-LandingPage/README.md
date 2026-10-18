@@ -40,5 +40,17 @@ Oasis Infobyte SIP Internship
 Track: Web Development & Designing  
 Task: Level 1 - Landing Page
 
+## Live Demo
+
+[Click here to view FocusFlow](https://neelraj002005-svg.github.io/OIBSIP/WebDev-L1-LandingPage/)
+
+## How to Run Locally
+
+1. Download or clone this repository.
+2. Open the `WebDev-L1-LandingPage` folder.
+3. Open `index.html` in your browser.
+
+
 ## Author
 NEEL RAJ
+
