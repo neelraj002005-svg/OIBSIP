@@ -1,88 +1,206 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FocusFlow - Boost Your Productivity</title>
+    <meta name="description" content="FocusFlow — Plan your day, manage your tasks, and build better habits. A modern productivity tool for focused minds.">
+    <title>FocusFlow — Boost Your Productivity</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    
+    <!-- ═══════════════════════════ NAVIGATION ═══════════════════════════ -->
+    <header class="site-header" role="banner">
+        <nav class="navbar" aria-label="Main navigation">
+            <a href="#home" class="logo" aria-label="FocusFlow — go to home">
+                <span class="logo-icon" aria-hidden="true">⬡</span>
+                FocusFlow<span class="logo-dot">.</span>
+            </a>
 
+            <!-- Hamburger toggle (mobile only) -->
+            <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+                <span class="hamburger-bar"></span>
+            </button>
 
-    <nav class="navbar">
-        <div class="logo">FocusFlow.</div>
+            <ul class="nav-links" id="nav-menu" role="list">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#features">Features</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-        <ul class="nav-links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#features">Features</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
-    </nav>
+    <!-- ═══════════════════════════ HERO ═══════════════════════════ -->
+    <main>
+        <section class="hero" id="home" aria-labelledby="hero-heading">
 
-    <section class="hero" id="home">
-        <p class="tagline">YOUR TIME. YOUR GOALS.</p>
+            <p class="tagline" aria-label="Tagline">
+                <span class="tagline-dot" aria-hidden="true"></span>
+                Your Time. Your Goals.
+            </p>
 
-        <h1>Focus on What<br>Really Matters.</h1>
+            <h1 id="hero-heading">
+                Focus on What<br>
+                <span class="hero-accent">Really Matters.</span>
+            </h1>
 
-        <p class="hero-text">
-            Plan your day, manage your tasks, and make every moment count.
-            Start building better habits with FocusFlow.
-        </p>
+            <p class="hero-text">
+                Plan your day, manage your tasks, and make every moment count.
+                Start building better habits with FocusFlow.
+            </p>
 
-        <a href="#features" class="cta-button">Explore Features →</a>
-    </section>
+            <div class="hero-actions">
+                <a href="#features" class="cta-button">
+                    Explore Features
+                    <span class="btn-arrow" aria-hidden="true">→</span>
+                </a>
+                <a href="#contact" class="cta-secondary">Get in Touch</a>
+            </div>
 
-    
-<section class="features" id="features">
-    <h2>Make Every Day Count</h2>
-    <p class="features-intro">
-        Everything you need to build a more productive routine.
-    </p>
+            <!-- CSS-based dashboard mockup -->
+            <div class="dashboard-mockup" aria-hidden="true">
+                <div class="mockup-bar">
+                    <span class="dot dot-red"></span>
+                    <span class="dot dot-yellow"></span>
+                    <span class="dot dot-green"></span>
+                    <span class="mockup-title">Today's Focus</span>
+                </div>
+                <div class="mockup-body">
+                    <div class="mockup-sidebar">
+                        <div class="sidebar-item active">📅 Today</div>
+                        <div class="sidebar-item">🎯 Goals</div>
+                        <div class="sidebar-item">📈 Progress</div>
+                        <div class="sidebar-item">⚙️ Settings</div>
+                    </div>
+                    <div class="mockup-content">
+                        <div class="mockup-header-row">
+                            <span class="mockup-date">Monday, Oct 19</span>
+                            <span class="mockup-badge">3 tasks left</span>
+                        </div>
+                        <div class="task-list">
+                            <div class="task-item done">
+                                <span class="task-check">✓</span>
+                                <span class="task-label">Morning review</span>
+                                <span class="task-time">09:00</span>
+                            </div>
+                            <div class="task-item done">
+                                <span class="task-check">✓</span>
+                                <span class="task-label">Deep work block</span>
+                                <span class="task-time">10:00</span>
+                            </div>
+                            <div class="task-item">
+                                <span class="task-check"></span>
+                                <span class="task-label">Team sync</span>
+                                <span class="task-time">14:00</span>
+                            </div>
+                            <div class="task-item">
+                                <span class="task-check"></span>
+                                <span class="task-label">Write daily notes</span>
+                                <span class="task-time">17:00</span>
+                            </div>
+                            <div class="task-item">
+                                <span class="task-check"></span>
+                                <span class="task-label">Evening wind-down</span>
+                                <span class="task-time">20:00</span>
+                            </div>
+                        </div>
+                        <div class="progress-bar-wrap">
+                            <span class="progress-label">Daily progress</span>
+                            <div class="progress-track">
+                                <div class="progress-fill"></div>
+                            </div>
+                            <span class="progress-pct">40%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    <div class="feature-container">
+        </section>
 
-        <div class="feature-card">
-            <div class="feature-icon">📅</div>
-            <h3>Smart Planning</h3>
-            <p>Plan your daily tasks and organize your schedule with ease.</p>
+        <!-- ═══════════════════════════ FEATURES ═══════════════════════════ -->
+        <section class="features" id="features" aria-labelledby="features-heading">
+            <div class="section-inner">
+                <p class="section-label" aria-hidden="true">What we offer</p>
+                <h2 id="features-heading">Make Every Day Count</h2>
+                <p class="features-intro">
+                    Everything you need to build a more productive routine — simple, clear, and effective.
+                </p>
+
+                <div class="feature-container">
+
+                    <div class="feature-card">
+                        <div class="feature-icon" aria-hidden="true">📅</div>
+                        <h3>Smart Planning</h3>
+                        <p>Plan your daily tasks and organize your schedule with ease. Set priorities, block time, and never miss what matters most.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon" aria-hidden="true">🎯</div>
+                        <h3>Stay Focused</h3>
+                        <p>Keep your attention on important goals and reduce distractions. Build deep work habits that compound over time.</p>
+                    </div>
+
+                    <div class="feature-card">
+                        <div class="feature-icon" aria-hidden="true">📈</div>
+                        <h3>Track Progress</h3>
+                        <p>Build better habits and celebrate your everyday progress. Visualize streaks, completions, and consistent growth.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ═══════════════════════════ FOOTER / CONTACT ═══════════════════════════ -->
+    <footer id="contact" aria-labelledby="contact-heading">
+        <div class="footer-inner">
+            <div class="footer-cta">
+                <p class="section-label" aria-hidden="true">Get started</p>
+                <h2 id="contact-heading">Ready to Focus?</h2>
+                <p class="footer-sub">Start small. Stay consistent. Achieve more.</p>
+                <a href="mailto:hello@focusflow.example" class="contact-button">
+                    Contact Us
+                    <span class="btn-arrow" aria-hidden="true">→</span>
+                </a>
+            </div>
+
+            <div class="footer-bottom">
+                <a href="#home" class="footer-logo" aria-label="Back to top">
+                    <span aria-hidden="true">⬡</span> FocusFlow<span class="logo-dot">.</span>
+                </a>
+                <nav class="footer-nav" aria-label="Footer navigation">
+                    <a href="#home">Home</a>
+                    <a href="#features">Features</a>
+                    <a href="mailto:hello@focusflow.example">Contact</a>
+                </nav>
+                <p class="copyright">© 2026 FocusFlow. Built for better productivity.</p>
+            </div>
         </div>
+    </footer>
 
-        <div class="feature-card">
-            <div class="feature-icon">🎯</div>
-            <h3>Stay Focused</h3>
-            <p>Keep your attention on important goals and reduce distractions.</p>
-        </div>
+    <!-- Hamburger nav toggle script (no external dependencies) -->
+    <script>
+        const toggle = document.querySelector('.nav-toggle');
+        const navMenu = document.getElementById('nav-menu');
 
-        <div class="feature-card">
-            <div class="feature-icon">📈</div>
-            <h3>Track Progress</h3>
-            <p>Build better habits and celebrate your everyday progress.</p>
-        </div>
+        toggle.addEventListener('click', () => {
+            const isOpen = navMenu.classList.toggle('open');
+            toggle.setAttribute('aria-expanded', isOpen);
+        });
 
-    </div>
-</section>
-
-
-    
-<footer id="contact">
-    <h2>Ready to Focus?</h2>
-    <p>Start small. Stay consistent. Achieve more.</p>
-
-    <a href="mailto:hello@focusflow.example" class="contact-button">
-        Contact Us
-    </a>
-
-    <p class="copyright">
-        © 2026 FocusFlow. Built for better productivity.
-    </p>
-</footer>
-
-
-</body>
-
+        // Close menu when a link is clicked
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('open');
+                toggle.setAttribute('aria-expanded', false);
+            });
+        });
+    </script>
 
 </body>
 </html>
