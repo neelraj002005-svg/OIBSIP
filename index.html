@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oasis Infobyte SIP — Neel Raj</title>
+    <meta name="description" content="Oasis Infobyte Web Development & Designing Internship projects by Neel Raj.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --clr-bg: #0d1526;
+            --clr-card: #132035;
+            --clr-border: #1e3050;
+            --clr-accent: #38bdf8;
+            --clr-accent-lt: #7dd3fc;
+            --clr-text: #f0f6ff;
+            --clr-muted: #94a3b8;
+            --clr-dim: #64748b;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: var(--clr-bg);
+            color: var(--clr-text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            line-height: 1.6;
+            padding: 2rem 1.5rem;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        header {
+            text-align: center;
+            padding: 2.5rem 0 3rem;
+        }
+        .badge {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--clr-accent);
+            background: rgba(56, 189, 248, 0.12);
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            padding: 0.35rem 0.9rem;
+            border-radius: 100px;
+            margin-bottom: 1.25rem;
+        }
+        h1 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 0.75rem;
+        }
+        .accent-text {
+            color: var(--clr-accent);
+        }
+        .subtitle {
+            color: var(--clr-muted);
+            font-size: 1.05rem;
+            max-width: 540px;
+            margin: 0 auto;
+        }
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.75rem;
+            margin-bottom: 3rem;
+        }
+        .task-card {
+            background: var(--clr-card);
+            border: 1px solid var(--clr-border);
+            border-radius: 16px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .task-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--clr-accent), transparent);
+            opacity: 0;
+            transition: opacity 0.25s ease;
+        }
+        .task-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(56, 189, 248, 0.4);
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4);
+        }
+        .task-card:hover::before { opacity: 1; }
+        .task-tag {
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--clr-accent);
+            margin-bottom: 0.75rem;
+        }
+        .task-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--clr-text);
+        }
+        .task-desc {
+            color: var(--clr-muted);
+            font-size: 0.92rem;
+            line-height: 1.7;
+            margin-bottom: 1.75rem;
+        }
+        .task-tech {
+            display: flex;
+            gap: 0.4rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.5rem;
+        }
+        .tech-pill {
+            font-size: 0.72rem;
+            color: var(--clr-muted);
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--clr-border);
+            padding: 0.2rem 0.6rem;
+            border-radius: 6px;
+        }
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            background: var(--clr-accent);
+            color: #0a1120;
+            padding: 0.8rem 1.5rem;
+            border-radius: 8px;
+            font-size: 0.92rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+        .btn:hover {
+            background: var(--clr-accent-lt);
+            transform: translateY(-2px);
+        }
+        footer {
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid var(--clr-border);
+            font-size: 0.85rem;
+            color: var(--clr-dim);
+        }
+        footer a {
+            color: var(--clr-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        footer a:hover { color: var(--clr-accent); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <span class="badge">Oasis Infobyte SIP — Level 1</span>
+            <h1>Web Development <span class="accent-text">Portfolio Hub</span></h1>
+            <p class="subtitle">Internship submissions and live projects developed by <strong>Neel Raj</strong>.</p>
+        </header>
+
+        <main class="cards-grid">
+            <!-- Task 1 Card -->
+            <article class="task-card">
+                <div>
+                    <div class="task-tag">Task 1</div>
+                    <h2 class="task-title">FocusFlow Landing Page</h2>
+                    <p class="task-desc">
+                        A modern, premium SaaS productivity landing page featuring a CSS-based dashboard mockup, responsive feature cards, smooth scrolling, and accessible UX.
+                    </p>
+                    <div class="task-tech">
+                        <span class="tech-pill">HTML5</span>
+                        <span class="tech-pill">CSS3</span>
+                        <span class="tech-pill">Flexbox &amp; Grid</span>
+                        <span class="tech-pill">Responsive</span>
+                    </div>
+                </div>
+                <a href="./WebDev-L1-LandingPage/" class="btn">
+                    View FocusFlow <span>→</span>
+                </a>
+            </article>
+
+            <!-- Task 2 Card -->
+            <article class="task-card">
+                <div>
+                    <div class="task-tag">Task 2</div>
+                    <h2 class="task-title">Personal Portfolio Website</h2>
+                    <p class="task-desc">
+                        A comprehensive personal portfolio highlighting skills, bio, internship projects, interactive typing animation, scroll reveal, and direct contact options.
+                    </p>
+                    <div class="task-tech">
+                        <span class="tech-pill">HTML5</span>
+                        <span class="tech-pill">CSS3</span>
+                        <span class="tech-pill">JavaScript</span>
+                        <span class="tech-pill">Animations</span>
+                    </div>
+                </div>
+                <a href="./WebDev-L1-PersonalPortfolio/" class="btn">
+                    View Portfolio <span>→</span>
+                </a>
+            </article>
+        </main>
+    </div>
+
+    <footer>
+        <p>© 2026 Neel Raj • Oasis Infobyte SIP Internship (Web Development &amp; Designing) • <a href="https://github.com/neelraj002005-svg/OIBSIP" target="_blank" rel="noopener noreferrer">GitHub Repository</a></p>
+    </footer>
+</body>
+</html>
