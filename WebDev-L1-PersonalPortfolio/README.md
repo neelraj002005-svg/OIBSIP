@@ -89,5 +89,6 @@ WebDev-L1-PersonalPortfolio/
 ## Author
 
 **Neel Raj**  
+Email: [neelraj002005@gmail.com](mailto:neelraj002005@gmail.com)  
 GitHub: [neelraj002005-svg](https://github.com/neelraj002005-svg)  
 LinkedIn: [neel-raj-03b5373b9](https://www.linkedin.com/in/neel-raj-03b5373b9/?isSelfProfile=true)
