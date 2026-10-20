@@ -14,7 +14,7 @@ This is a fully responsive personal portfolio website for **Neel Raj**, a fronte
 ## Features
 
 - **Sticky navigation** — smooth anchor scroll + hamburger menu on mobile
-- **Hero section** — animated avatar, typing role animation, floating skill badges, dual CTA buttons
+- **Hero section** — professional developer portrait avatar with glowing animated halo ring, typing role animation, floating skill badges, dual CTA buttons
 - **About section** — personal bio with info cards (education, internship, focus)
 - **Skills section** — 6 beginner/learning cards (C Programming, C++, Python, HTML, CSS, JavaScript) with level badges and colour-coded icons
 - **Projects section** — two project cards with CSS thumbnail previews, tech tags, and links
