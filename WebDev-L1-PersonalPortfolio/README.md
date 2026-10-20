@@ -73,7 +73,7 @@ WebDev-L1-PersonalPortfolio/
 
 ## Live Demo
 
-🔗 *(Link will be added after deployment is verified)*
+🔗 [Click here to view Neel Raj's Portfolio](https://neelraj002005-svg.github.io/OIBSIP/WebDev-L1-PersonalPortfolio/)
 
 ---
 
