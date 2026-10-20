@@ -90,4 +90,4 @@ WebDev-L1-PersonalPortfolio/
 
 **Neel Raj**  
 GitHub: [neelraj002005-svg](https://github.com/neelraj002005-svg)  
-LinkedIn: [neel-raj-03b5373b9](https://www.linkedin.com/in/neel-raj-03b5373b9/)
+LinkedIn: [neel-raj-03b5373b9](https://www.linkedin.com/in/neel-raj-03b5373b9/?isSelfProfile=true)
