@@ -1,85 +1,118 @@
+# FocusFlow
 
-# FocusFlow — Productivity Landing Page
-
-> A polished, modern SaaS-style landing page built for the Oasis Infobyte Web Development Internship.
-
-## Live Demo
-
-🔗 [Click here to view FocusFlow](https://neelraj002005-svg.github.io/OIBSIP/WebDev-L1-LandingPage/)
-
----
-
-## About the Project
-
-FocusFlow is a responsive productivity landing page designed to encourage better time management, daily planning, and goal tracking. The design follows a clean, premium SaaS aesthetic with deep navy backgrounds, cyan accents, and smooth interactions.
-
----
+FocusFlow is a productivity website that helps users manage tasks and work in focused sessions using a Pomodoro timer.
 
 ## Features
 
-- **Sticky navigation bar** — with smooth anchor scroll and an accessible hamburger menu on mobile
-- **Hero section** — strong headline with gradient accent text, tagline pill, dual CTA buttons, and a CSS-only dashboard mockup
-- **Feature cards** — three responsive cards (Smart Planning, Stay Focused, Track Progress) with subtle hover effects
-- **Contact / Footer** — CTA block, footer navigation, and copyright
-- **Fully responsive** — adapts across desktop (3-column), tablet (2-column), and mobile (1-column) layouts
-- **Accessible** — semantic HTML5, visible keyboard focus, ARIA labels, `prefers-reduced-motion` support
-- **Lightweight** — no JavaScript frameworks, no external image assets, no build tools
+### 1. Focus Timer
+- 25-minute focus session
+- 5-minute short break
+- 15-minute long break
+- Custom timer duration
+- Start, pause, resume, and reset controls
+- Circular timer progress indicator
+- Sound notification when a session ends
+- Optional browser notifications
+- Daily completed focus-session counter
 
----
+### 2. Automatic Breaks
+- Automatically starts a break after a focus session when enabled
+- Uses a 5-minute short break for regular sessions
+- Starts a 15-minute long break after every fourth completed focus session
+- Returns to the focus timer after a break
+- Option to turn automatic breaks on or off
+
+### 3. Focus Mode
+- Fullscreen timer view
+- Start and pause controls
+- Displays the current session and remaining time
+- Exit using the button or the `Esc` key
+
+### 4. Weekly Focus Chart
+- Displays completed focus sessions from Monday to Sunday
+- Highlights the current day
+- Shows the total sessions completed during the week
+- Stores session history in the browser
+
+### 5. Task Manager
+- Add new tasks
+- Mark tasks as completed
+- Delete individual tasks
+- Track task completion progress
+- Clear all completed tasks
+- Save tasks in the browser using `localStorage`
+
+### 6. Light and Dark Themes
+- Switch between light and dark themes
+- Saves the selected theme in the browser
+- Restores the selected theme when the website is opened again
+
+### 7. Command Palette
+Open the command palette using `Ctrl + K` on Windows/Linux or `Cmd + K` on macOS.
+
+Available keyboard controls:
+- Arrow keys to navigate commands
+- `Enter` to select a command
+- `Esc` to close the command palette
+
+The palette provides shortcuts for timer controls, themes, notifications, tasks, focus mode, and page navigation.
+
+### 8. Contact Section
+- Contact button and email link
+- Opens the default email application
+- Provides quick access to the developer's contact information
+
+### 9. Responsive Layout
+- Navigation links for the main sections
+- Layout adapts to different screen sizes
+- Footer links for quick navigation
 
 ## Technologies Used
 
-| Technology        | Purpose                           |
-|------------------|-----------------------------------|
-| HTML5             | Semantic document structure       |
-| CSS3              | All styling and layout            |
-| CSS Custom Properties | Consistent design tokens     |
-| CSS Grid          | Feature card layout               |
-| Flexbox           | Navigation and hero layout        |
-| Media Queries     | Responsive breakpoints            |
-| Google Fonts (Inter) | Premium typography             |
-
----
+- HTML5
+- CSS3
+- JavaScript
+- Browser Local Storage
+- Web Notifications API
+- Web Audio API
+- Fullscreen API
 
 ## Project Structure
 
 ```text
-WebDev-L1-LandingPage/
-├── index.html    ← Main HTML file
-├── style.css     ← All styles (custom properties, layout, responsive)
-└── README.md     ← This file
+FocusFlow/
+├── index.html
+├── style.css
+├── script.js
+├── favicon.svg
+├── og-image.png
+└── README.md
 ```
 
----
+Keep the image and icon files in the same folder as the HTML file if the code references them using relative paths.
 
 ## How to Run Locally
 
-1. Clone or download this repository.
-2. Open the `WebDev-L1-LandingPage/` folder.
-3. Open `index.html` directly in any modern web browser — no server needed.
+1. Download or clone the project files.
+2. Open the `FocusFlow` folder in Visual Studio Code.
+3. Install the Live Server extension if it is not already installed.
+4. Right-click `index.html`.
+5. Select **Open with Live Server**.
 
-> **Tip:** For Google Fonts to load, an internet connection is required. The page degrades gracefully to `system-ui` / `Arial` when offline.
+The website will open in your default browser.
 
----
+## Data Storage and Privacy
 
-## Responsive Breakpoints
+FocusFlow stores tasks, timer preferences, theme settings, and session history in the browser using `localStorage`.
 
-| Viewport   | Layout                        |
-|------------|-------------------------------|
-| > 900px    | 3-column feature grid         |
-| 641–900px  | 2-column feature grid         |
-| ≤ 640px    | 1-column, hamburger nav       |
-
----
-
-## Internship
-
-**Programme:** Oasis Infobyte SIP Internship  
-**Track:** Web Development & Designing  
-**Task:** Level 1 — Landing Page
-
----
+The application does not require an account or a separate backend server for these features. Clearing the browser's site data may remove saved information.
 
 ## Author
 
 **Neel Raj**
+
+Email: neelraj001987@gmail.com
+
+## Purpose
+
+This project was created as part of a web development learning and internship project. It helped me practise HTML, CSS, JavaScript, responsive design, and browser-based functionality.

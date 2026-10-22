@@ -3,204 +3,487 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="FocusFlow — Plan your day, manage your tasks, and build better habits. A modern productivity tool for focused minds.">
+    <meta name="description" content="FocusFlow — A modern productivity workspace featuring an interactive 25-minute focus timer, task manager with local persistence, and instant command palette in a Midnight Blue & Cool Cyan theme.">
     <title>FocusFlow — Boost Your Productivity</title>
+    <meta name="theme-color" content="#0B1220">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <!-- Open Graph / link preview: change og:image and og:url to your full deployed URL -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="FocusFlow — Boost Your Productivity">
+    <meta property="og:description" content="Pomodoro focus timer, task manager and Ctrl+K command palette in a midnight blue theme.">
+    <meta property="og:image" content="og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="FocusFlow — Boost Your Productivity">
+    <meta name="twitter:description" content="Pomodoro focus timer, task manager and Ctrl+K command palette.">
+    <meta name="twitter:image" content="og-image.png">
+    <script>
+        (function () {
+            try {
+                var t = localStorage.getItem('focusflow_theme');
+                if (!t) t = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+                document.documentElement.setAttribute('data-theme', t);
+            } catch (e) { document.documentElement.setAttribute('data-theme', 'dark'); }
+        })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!-- ═══════════════════════════ SUBTLE AMBIENT MESH (MIDNIGHT NAVY) ═══════════════════════════ -->
+    <div class="ambient-bg" aria-hidden="true">
+        <div class="glow-orb orb-navy"></div>
+        <div class="glow-orb orb-cyan"></div>
+        <div class="mesh-grid"></div>
+    </div>
+
     <!-- ═══════════════════════════ NAVIGATION ═══════════════════════════ -->
-    <header class="site-header" role="banner">
+    <header class="glass-header" role="banner">
         <nav class="navbar" aria-label="Main navigation">
-            <a href="#home" class="logo" aria-label="FocusFlow — go to home">
-                <span class="logo-icon" aria-hidden="true">⬡</span>
-                FocusFlow<span class="logo-dot">.</span>
+            <a href="#home" class="logo" aria-label="FocusFlow — Return to top">
+                <span class="logo-symbol" aria-hidden="true">⬡</span>
+                <span class="logo-text">FocusFlow<span class="logo-dot">.</span></span>
             </a>
 
-            <!-- Hamburger toggle (mobile only) -->
-            <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
-                <span class="hamburger-bar"></span>
-                <span class="hamburger-bar"></span>
-                <span class="hamburger-bar"></span>
-            </button>
+            <div class="nav-center" id="navMenu">
+                <ul class="nav-links" role="list">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#workspace" class="nav-link">Workspace</a></li>
+                    <li><a href="#timer-section" class="nav-link">Focus Timer</a></li>
+                    <li><a href="#tasks-section" class="nav-link">Tasks</a></li>
+                    <li><a href="#features" class="nav-link">Features</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </div>
 
-            <ul class="nav-links" id="nav-menu" role="list">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#features">Features</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+            <div class="nav-actions">
+                <!-- Command palette launcher button -->
+                <button class="cmd-trigger-btn" id="cmdTrigger" type="button" aria-label="Open command palette (Ctrl+K)">
+                    <span class="cmd-search-icon" aria-hidden="true">🔍</span>
+                    <span class="cmd-trigger-text">Commands</span>
+                    <kbd class="cmd-shortcut-badge" aria-hidden="true">Ctrl K</kbd>
+                </button>
+
+                <button class="theme-toggle-btn" id="themeToggleBtn" type="button" aria-label="Switch to light theme">☀️</button>
+
+                <!-- Mobile menu toggle button -->
+                <button class="nav-toggle" id="navToggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navMenu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
         </nav>
     </header>
 
-    <!-- ═══════════════════════════ HERO ═══════════════════════════ -->
-    <main>
-        <section class="hero" id="home" aria-labelledby="hero-heading">
+    <main id="main-content">
 
-            <p class="tagline" aria-label="Tagline">
-                <span class="tagline-dot" aria-hidden="true"></span>
-                Your Time. Your Goals.
-            </p>
-
-            <h1 id="hero-heading">
-                Focus on What<br>
-                <span class="hero-accent">Really Matters.</span>
-            </h1>
-
-            <p class="hero-text">
-                Plan your day, manage your tasks, and make every moment count.
-                Start building better habits with FocusFlow.
-            </p>
-
-            <div class="hero-actions">
-                <a href="#features" class="cta-button">
-                    Explore Features
-                    <span class="btn-arrow" aria-hidden="true">→</span>
-                </a>
-                <a href="#contact" class="cta-secondary">Get in Touch</a>
-            </div>
-
-            <!-- CSS-based dashboard mockup -->
-            <div class="dashboard-mockup" aria-hidden="true">
-                <div class="mockup-bar">
-                    <span class="dot dot-red"></span>
-                    <span class="dot dot-yellow"></span>
-                    <span class="dot dot-green"></span>
-                    <span class="mockup-title">Today's Focus</span>
+        <!-- ═══════════════════════════ HERO SECTION ═══════════════════════════ -->
+        <section class="hero-section" id="home" aria-labelledby="hero-title">
+            <div class="hero-content">
+                <div class="tagline-pill">
+                    <span class="pulse-dot" aria-hidden="true"></span>
+                    <span>Your Time. Your Goals.</span>
                 </div>
-                <div class="mockup-body">
-                    <div class="mockup-sidebar">
-                        <div class="sidebar-item active">📅 Today</div>
-                        <div class="sidebar-item">🎯 Goals</div>
-                        <div class="sidebar-item">📈 Progress</div>
-                        <div class="sidebar-item">⚙️ Settings</div>
-                    </div>
-                    <div class="mockup-content">
-                        <div class="mockup-header-row">
-                            <span class="mockup-date">Monday, Oct 19</span>
-                            <span class="mockup-badge">3 tasks left</span>
-                        </div>
-                        <div class="task-list">
-                            <div class="task-item done">
-                                <span class="task-check">✓</span>
-                                <span class="task-label">Morning review</span>
-                                <span class="task-time">09:00</span>
-                            </div>
-                            <div class="task-item done">
-                                <span class="task-check">✓</span>
-                                <span class="task-label">Deep work block</span>
-                                <span class="task-time">10:00</span>
-                            </div>
-                            <div class="task-item">
-                                <span class="task-check"></span>
-                                <span class="task-label">Team sync</span>
-                                <span class="task-time">14:00</span>
-                            </div>
-                            <div class="task-item">
-                                <span class="task-check"></span>
-                                <span class="task-label">Write daily notes</span>
-                                <span class="task-time">17:00</span>
-                            </div>
-                            <div class="task-item">
-                                <span class="task-check"></span>
-                                <span class="task-label">Evening wind-down</span>
-                                <span class="task-time">20:00</span>
-                            </div>
-                        </div>
-                        <div class="progress-bar-wrap">
-                            <span class="progress-label">Daily progress</span>
-                            <div class="progress-track">
-                                <div class="progress-fill"></div>
-                            </div>
-                            <span class="progress-pct">40%</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-        </section>
+                <h1 id="hero-title" class="hero-heading">
+                    Focus on What<br>
+                    <span class="cyan-accent-text">Really Matters.</span>
+                </h1>
 
-        <!-- ═══════════════════════════ FEATURES ═══════════════════════════ -->
-        <section class="features" id="features" aria-labelledby="features-heading">
-            <div class="section-inner">
-                <p class="section-label" aria-hidden="true">What we offer</p>
-                <h2 id="features-heading">Make Every Day Count</h2>
-                <p class="features-intro">
-                    Everything you need to build a more productive routine — simple, clear, and effective.
+                <p class="hero-subheading">
+                    Plan your day, manage your deep work blocks, and make every moment count.
+                    A distraction-free, professional Midnight Blue workspace built for peak focus.
                 </p>
 
-                <div class="feature-container">
+                <div class="hero-cta-group">
+                    <a href="#timer-section" class="btn-primary" id="startFocusBtn">
+                        <span class="btn-icon" aria-hidden="true">⏱</span>
+                        <span>Start 25m Focus</span>
+                    </a>
+                    <a href="#contact" class="btn-secondary">
+                        <span class="btn-icon" aria-hidden="true">✉</span>
+                        <span>Get in Touch</span>
+                    </a>
+                </div>
 
-                    <div class="feature-card">
-                        <div class="feature-icon" aria-hidden="true">📅</div>
-                        <h3>Smart Planning</h3>
-                        <p>Plan your daily tasks and organize your schedule with ease. Set priorities, block time, and never miss what matters most.</p>
+                <div class="hero-shortcut-hint" aria-hidden="true">
+                    <span>Press <kbd>Ctrl</kbd> + <kbd>K</kbd> (or <kbd>⌘K</kbd>) to search actions and toggle timer</span>
+                </div>
+            </div>
+
+            <!-- ═══════════════════════════ LIVE INTERACTIVE DASHBOARD ═══════════════════════════ -->
+            <div class="dashboard-wrapper" id="workspace" aria-label="Interactive FocusFlow Workspace">
+                <div class="frosted-window">
+                    <!-- Window chrome bar -->
+                    <div class="window-header">
+                        <div class="window-controls" aria-hidden="true">
+                            <span class="ctrl-dot dot-close"></span>
+                            <span class="ctrl-dot dot-min"></span>
+                            <span class="ctrl-dot dot-max"></span>
+                        </div>
+                        <div class="window-title-wrap">
+                            <span class="window-app-icon" aria-hidden="true">⚡</span>
+                            <span class="window-title">FocusFlow Studio — Today's Focus</span>
+                        </div>
+                        <div class="window-meta">
+                            <span class="live-clock" id="currentDateDisplay">Today</span>
+                        </div>
                     </div>
 
-                    <div class="feature-card">
-                        <div class="feature-icon" aria-hidden="true">🎯</div>
-                        <h3>Stay Focused</h3>
-                        <p>Keep your attention on important goals and reduce distractions. Build deep work habits that compound over time.</p>
-                    </div>
+                    <!-- Window body grid with Timer & Task Manager -->
+                    <div class="window-body">
 
-                    <div class="feature-card">
-                        <div class="feature-icon" aria-hidden="true">📈</div>
-                        <h3>Track Progress</h3>
-                        <p>Build better habits and celebrate your everyday progress. Visualize streaks, completions, and consistent growth.</p>
-                    </div>
+                        <!-- LEFT PANEL: 25-MINUTE FOCUS TIMER -->
+                        <section class="suite-panel timer-panel" id="timer-section" aria-labelledby="timer-heading">
+                            <div class="panel-header">
+                                <h2 id="timer-heading" class="panel-title">
+                                    <span class="panel-icon" aria-hidden="true">⏳</span>
+                                    Focus Timer
+                                </h2>
+                                <button class="sound-toggle-btn" id="soundToggleBtn" type="button" aria-label="Toggle notifications">
+                                    <span id="soundIcon" aria-hidden="true">🔔</span>
+                                    <span id="soundStatusText">Notify On</span>
+                                </button>
+                                <button class="sound-toggle-btn auto-break-btn" id="autoBreakBtn" type="button" aria-pressed="true">⚡ Auto-break: On</button>
+                                <button class="sound-toggle-btn auto-break-btn" id="fullscreenFocusBtn" type="button" aria-label="Enter fullscreen focus mode">⛶ Focus Mode</button>
+                            </div>
 
+                            <!-- Mode selection pills -->
+                            <div class="timer-mode-selector" role="tablist" aria-label="Timer modes">
+                                <button class="mode-btn active" id="modeFocus" role="tab" aria-selected="true" data-minutes="25">
+                                    Focus (25m)
+                                </button>
+                                <button class="mode-btn" id="modeShort" role="tab" aria-selected="false" data-minutes="5">
+                                    Short (5m)
+                                </button>
+                                <button class="mode-btn" id="modeLong" role="tab" aria-selected="false" data-minutes="15">
+                                    Long (15m)
+                                </button>
+                                <button class="mode-btn" id="modeCustom" role="tab" aria-selected="false" aria-expanded="false" aria-controls="customTimerPanel">
+                                    Custom
+                                </button>
+                            </div>
+
+                            <!-- Compact Custom Timer Settings Panel -->
+                            <div class="custom-timer-panel" id="customTimerPanel" role="region" aria-labelledby="customPanelTitle" hidden>
+                                <div class="custom-panel-top">
+                                    <span class="custom-panel-title" id="customPanelTitle">Set Custom Duration</span>
+                                    <button type="button" class="btn-close-custom" id="customCloseBtn" aria-label="Close settings">✕</button>
+                                </div>
+                                <div class="custom-inputs-wrap">
+                                    <div class="custom-field">
+                                        <label for="customMinutes" class="custom-field-label">Minutes</label>
+                                        <input type="number" id="customMinutes" class="custom-time-input" min="0" max="99" value="30" placeholder="MM" aria-label="Minutes (0-99)">
+                                    </div>
+                                    <span class="custom-separator" aria-hidden="true">:</span>
+                                    <div class="custom-field">
+                                        <label for="customSeconds" class="custom-field-label">Seconds (opt)</label>
+                                        <input type="number" id="customSeconds" class="custom-time-input" min="0" max="59" value="00" placeholder="SS" aria-label="Seconds (0-59)">
+                                    </div>
+                                </div>
+                                <div class="custom-timer-error" id="customTimerError" role="alert" aria-live="polite"></div>
+                                <div class="custom-panel-actions">
+                                    <button type="button" class="btn-custom-start" id="startCustomTimerBtn">
+                                        <span>Start Custom Timer</span>
+                                    </button>
+                                    <button type="button" class="btn-custom-cancel" id="cancelCustomTimerBtn">
+                                        <span>Cancel</span>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- SVG Radial Progress Timer with Cool Cyan Glow -->
+                            <div class="timer-visual-wrap">
+                                <div class="timer-dial">
+                                    <svg class="progress-ring" viewBox="0 0 240 240" aria-hidden="true">
+                                        <circle class="ring-bg" cx="120" cy="120" r="100"></circle>
+                                        <circle class="ring-fill" id="ringFill" cx="120" cy="120" r="100"></circle>
+                                    </svg>
+                                    <div class="dial-content">
+                                        <span class="time-display" id="timeDisplay" aria-live="polite">25:00</span>
+                                        <span class="session-label" id="sessionLabel">Deep Work Block</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Timer Controls -->
+                            <div class="timer-controls">
+                                <button class="timer-btn btn-timer-primary" id="timerToggleBtn" type="button">
+                                    <span class="btn-timer-icon" id="timerBtnIcon" aria-hidden="true">▶</span>
+                                    <span id="timerBtnText">Start Focus</span>
+                                </button>
+                                <button class="timer-btn btn-timer-secondary" id="timerResetBtn" type="button" aria-label="Reset timer">
+                                    <span aria-hidden="true">↺</span>
+                                    <span>Reset</span>
+                                </button>
+                            </div>
+
+                            <!-- Completed sessions tracker -->
+                            <div class="session-stats-bar">
+                                <span class="stats-label">Completed sessions today:</span>
+                                <span class="stats-counter" id="completedSessionsCount">0</span>
+                                <div class="pomo-dots" id="pomoDots" aria-hidden="true">
+                                    <span class="pomo-dot"></span>
+                                    <span class="pomo-dot"></span>
+                                    <span class="pomo-dot"></span>
+                                    <span class="pomo-dot"></span>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- RIGHT PANEL: TASK MANAGER -->
+                        <section class="suite-panel tasks-panel" id="tasks-section" aria-labelledby="tasks-heading">
+                            <div class="panel-header">
+                                <h2 id="tasks-heading" class="panel-title">
+                                    <span class="panel-icon" aria-hidden="true">📋</span>
+                                    Task Flow
+                                </h2>
+                                <span class="task-badge" id="taskRatioBadge">0 of 0 done</span>
+                            </div>
+
+                            <!-- Progress Track -->
+                            <div class="task-progress-box">
+                                <div class="progress-header">
+                                    <span class="progress-text-label">Daily Completion</span>
+                                    <span class="progress-percentage" id="progressPercentage">0%</span>
+                                </div>
+                                <div class="progress-track" role="progressbar" id="progressBar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+                                    <div class="progress-fill" id="progressFill" style="width: 0%;"></div>
+                                </div>
+                            </div>
+
+                            <!-- Task Input Form -->
+                            <form class="task-form" id="taskForm" autocomplete="off">
+                                <div class="task-input-wrapper">
+                                    <input type="text" id="taskInput" class="task-input" placeholder="Add a new task (e.g., Deep work review)..." aria-label="New task title" maxlength="120">
+                                    <button type="submit" class="task-add-btn" id="taskAddBtn" aria-label="Add task">
+                                        <span aria-hidden="true">+</span>
+                                        <span>Add</span>
+                                    </button>
+                                </div>
+                            </form>
+
+                            <!-- Task List Container -->
+                            <div class="task-list-container" role="region" aria-label="Task list" tabindex="0">
+                                <ul class="task-items-list" id="taskList" role="list">
+                                    <!-- Populated dynamically via script.js & localStorage -->
+                                </ul>
+                                <div class="empty-tasks-state" id="emptyState" hidden>
+                                    <span class="empty-icon" aria-hidden="true">✨</span>
+                                    <p class="empty-title">All tasks cleared!</p>
+                                    <p class="empty-subtitle">Add a task above or press <kbd>Ctrl+K</kbd> to get started.</p>
+                                </div>
+                            </div>
+
+                            <!-- Task Footer Actions -->
+                            <div class="task-footer">
+                                <span class="task-summary" id="taskSummary">0 tasks remaining</span>
+                                <button type="button" class="btn-clear-completed" id="clearCompletedBtn">
+                                    Clear Completed
+                                </button>
+                            </div>
+                        </section>
+
+                        <!-- FULL-WIDTH PANEL: WEEKLY FOCUS CHART -->
+                        <section class="suite-panel weekly-panel" id="weekly-section" aria-labelledby="weekly-heading">
+                            <div class="panel-header">
+                                <h2 id="weekly-heading" class="panel-title">
+                                    <span class="panel-icon" aria-hidden="true">📊</span>
+                                    Weekly Focus
+                                </h2>
+                                <span class="task-badge" id="weeklyTotalBadge">0 sessions this week</span>
+                            </div>
+                            <div class="weekly-chart" id="weeklyChart" role="img" aria-label="Bar chart of focus sessions per day this week">
+                                <!-- 7 day bars populated dynamically via script.js -->
+                            </div>
+                            <p class="weekly-hint">Counts a session every time a 25m Focus block finishes. Saved locally.</p>
+                        </section>
+
+                    </div>
                 </div>
             </div>
         </section>
+
+        <!-- ═══════════════════════════ FEATURES SECTION ═══════════════════════════ -->
+        <section class="features-section" id="features" aria-labelledby="features-title">
+            <div class="section-container">
+                <div class="section-header">
+                    <span class="section-tagline">Why FocusFlow</span>
+                    <h2 id="features-title" class="section-heading">Make Every Day Count</h2>
+                    <p class="section-subheading">
+                        Built for structured deep work. Clear priorities, zero friction, and high focus.
+                    </p>
+                </div>
+
+                <div class="features-grid">
+                    <article class="glass-feature-card">
+                        <div class="feature-icon-wrap" aria-hidden="true">⏱️</div>
+                        <h3 class="feature-title">25-Minute Focus Blocks</h3>
+                        <p class="feature-description">
+                            Structured Pomodoro timeboxing keeps energy consistent and mental fatigue low. Includes short and long recovery intervals.
+                        </p>
+                    </article>
+
+                    <article class="glass-feature-card">
+                        <div class="feature-icon-wrap" aria-hidden="true">💾</div>
+                        <h3 class="feature-title">Persistent Task Flow</h3>
+                        <p class="feature-description">
+                            Tasks, completion checkmarks, and progress track locally in your browser's localStorage. Everything is ready when you return.
+                        </p>
+                    </article>
+
+                    <article class="glass-feature-card">
+                        <div class="feature-icon-wrap" aria-hidden="true">⚡</div>
+                        <h3 class="feature-title">Keyboard-First Control</h3>
+                        <p class="feature-description">
+                            Open the Command Palette with <kbd>Ctrl+K</kbd> to trigger timers, switch break modes, or jump sections without touching your mouse.
+                        </p>
+                    </article>
+
+                    <article class="glass-feature-card">
+                        <div class="feature-icon-wrap" aria-hidden="true">🛡️</div>
+                        <h3 class="feature-title">100% Local &amp; Private</h3>
+                        <p class="feature-description">
+                            No telemetry, third-party analytics, or external servers. All data and focus sessions live strictly on your machine.
+                        </p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════ CONTACT SECTION ═══════════════════════════ -->
+        <section class="contact-section" id="contact" aria-labelledby="contact-heading">
+            <div class="section-container">
+                <div class="contact-card-compact">
+                    <span class="section-tagline">Connect &amp; Collaborate</span>
+                    <h2 id="contact-heading" class="section-heading">Get in Touch</h2>
+                    <p class="contact-subheading">
+                        Have feedback, questions, or ideas for FocusFlow? Reach out anytime.
+                    </p>
+                    <div class="contact-action-wrap">
+                        <a href="mailto:neelraj001987@gmail.com" class="contact-button" id="contactBtn" aria-label="Contact Us via email at neelraj001987@gmail.com">
+                            <span>Contact Us</span>
+                            <span class="btn-arrow" aria-hidden="true">→</span>
+                        </a>
+                    </div>
+                    <p class="contact-direct-hint">
+                        Direct email: <a href="mailto:neelraj001987@gmail.com" class="contact-email-link">neelraj001987@gmail.com</a>
+                    </p>
+                </div>
+            </div>
+        </section>
+
     </main>
 
-    <!-- ═══════════════════════════ FOOTER / CONTACT ═══════════════════════════ -->
-    <footer id="contact" aria-labelledby="contact-heading">
-        <div class="footer-inner">
-            <div class="footer-cta">
-                <p class="section-label" aria-hidden="true">Get started</p>
-                <h2 id="contact-heading">Ready to Focus?</h2>
-                <p class="footer-sub">Start small. Stay consistent. Achieve more.</p>
-                <a href="mailto:hello@focusflow.example" class="contact-button">
-                    Contact Us
-                    <span class="btn-arrow" aria-hidden="true">→</span>
-                </a>
+    <!-- ═══════════════════════════ PROFESSIONAL FOOTER ═══════════════════════════ -->
+    <footer class="glass-footer" role="contentinfo">
+        <div class="footer-container">
+            <div class="footer-top">
+                <div class="footer-brand">
+                    <a href="#home" class="logo" aria-label="FocusFlow — Return to top">
+                        <span class="logo-symbol" aria-hidden="true">⬡</span>
+                        <span class="logo-text">FocusFlow<span class="logo-dot">.</span></span>
+                    </a>
+                    <p class="footer-tagline">
+                        A distraction-free productivity workspace engineered in Midnight Blue and Cool Cyan for structured deep work.
+                    </p>
+                    <div class="footer-contact-pill">
+                        <span class="footer-contact-icon" aria-hidden="true">✉</span>
+                        <a href="mailto:neelraj001987@gmail.com" class="footer-email-link">neelraj001987@gmail.com</a>
+                    </div>
+                </div>
+
+                <div class="footer-nav-col">
+                    <h4 class="shortcuts-title">Quick Links</h4>
+                    <ul class="footer-nav-list" role="list">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#workspace">Workspace</a></li>
+                        <li><a href="#timer-section">Focus Timer</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-shortcuts">
+                    <h4 class="shortcuts-title">Keyboard Shortcuts</h4>
+                    <ul class="shortcuts-list" role="list">
+                        <li><kbd>Ctrl</kbd> + <kbd>K</kbd> / <kbd>⌘K</kbd> — Command Palette</li>
+                        <li><kbd>Esc</kbd> — Close Dialog</li>
+                        <li><kbd>Enter</kbd> — Add Task / Select Action</li>
+                    </ul>
+                </div>
             </div>
 
             <div class="footer-bottom">
-                <a href="#home" class="footer-logo" aria-label="Back to top">
-                    <span aria-hidden="true">⬡</span> FocusFlow<span class="logo-dot">.</span>
-                </a>
-                <nav class="footer-nav" aria-label="Footer navigation">
+                <p class="copyright-text">
+                    &copy; 2026 FocusFlow. All rights reserved. Built for better productivity.
+                </p>
+                <div class="footer-links">
                     <a href="#home">Home</a>
+                    <a href="#workspace">Workspace</a>
+                    <a href="#timer-section">Timer</a>
                     <a href="#features">Features</a>
-                    <a href="mailto:hello@focusflow.example">Contact</a>
-                </nav>
-                <p class="copyright">© 2026 FocusFlow. Built for better productivity.</p>
+                    <a href="#contact">Contact</a>
+                    <a href="mailto:neelraj001987@gmail.com">neelraj001987@gmail.com</a>
+                </div>
             </div>
         </div>
     </footer>
 
-    <!-- Hamburger nav toggle script (no external dependencies) -->
-    <script>
-        const toggle = document.querySelector('.nav-toggle');
-        const navMenu = document.getElementById('nav-menu');
+    <!-- ═══════════════════════════ COMMAND PALETTE MODAL ═══════════════════════════ -->
+    <div class="cmd-palette-backdrop" id="cmdPalette" role="dialog" aria-modal="true" aria-labelledby="cmdPaletteTitle" hidden>
+        <div class="cmd-palette-card" role="document">
+            <div class="cmd-search-bar">
+                <span class="cmd-icon-left" aria-hidden="true">🔍</span>
+                <input type="text" id="cmdSearchInput" class="cmd-search-input" placeholder="Type a command or jump to section..." aria-label="Search commands" autocomplete="off" spellcheck="false">
+                <kbd class="cmd-esc-badge" id="cmdEscBadge" aria-label="Press Escape to close">ESC</kbd>
+            </div>
 
-        toggle.addEventListener('click', () => {
-            const isOpen = navMenu.classList.toggle('open');
-            toggle.setAttribute('aria-expanded', isOpen);
-        });
+            <div class="cmd-results-area" id="cmdResults" role="listbox" aria-label="Matching commands">
+                <!-- Commands populated dynamically with keyboard navigation -->
+            </div>
 
-        // Close menu when a link is clicked
-        navMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('open');
-                toggle.setAttribute('aria-expanded', false);
-            });
-        });
-    </script>
+            <div class="cmd-footer-hints">
+                <span><kbd>↑</kbd> <kbd>↓</kbd> Navigate</span>
+                <span><kbd>Enter</kbd> Select</span>
+                <span><kbd>Esc</kbd> Close</span>
+            </div>
+        </div>
+    </div>
 
+    <!-- ═══════════════════════════ NOTIFICATION TOAST ═══════════════════════════ -->
+    <div class="toast-notification" id="toastNotification" role="status" aria-live="polite" aria-atomic="true">
+        <span class="toast-icon" id="toastIcon" aria-hidden="true">🔔</span>
+        <span class="toast-message" id="toastMessage">Focus session completed!</span>
+    </div>
+
+    <!-- ═══════════════════════════ FULLSCREEN FOCUS MODE OVERLAY ═══════════════════════════ -->
+    <div class="focus-overlay" id="focusOverlay" role="dialog" aria-modal="true" aria-label="Fullscreen focus mode" hidden>
+        <button class="focus-overlay-exit" id="focusOverlayExit" type="button" aria-label="Exit fullscreen focus mode">✕ Exit (Esc)</button>
+        <div class="focus-overlay-inner">
+            <span class="focus-overlay-mode" id="focusOverlayMode">Deep Work Block</span>
+            <div class="focus-overlay-dial">
+                <svg class="progress-ring" viewBox="0 0 240 240" aria-hidden="true">
+                    <circle class="ring-bg" cx="120" cy="120" r="100"></circle>
+                    <circle class="ring-fill" id="focusOverlayRing" cx="120" cy="120" r="100"></circle>
+                </svg>
+                <div class="focus-overlay-time" id="focusOverlayTime">25:00</div>
+            </div>
+            <div class="focus-overlay-controls">
+                <button class="timer-btn btn-timer-primary" id="focusOverlayToggle" type="button">
+                    <span class="btn-timer-icon" id="focusOverlayToggleIcon" aria-hidden="true">▶</span>
+                    <span id="focusOverlayToggleText">Start</span>
+                </button>
+            </div>
+            <span class="focus-overlay-hint" aria-hidden="true">Only the timer is shown here. Press <kbd>Esc</kbd> to return.</span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
