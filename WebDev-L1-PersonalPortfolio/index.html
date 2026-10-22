@@ -5,12 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Neel Raj — Frontend Developer & CS Student. Personal portfolio showcasing projects, skills, and internship work.">
     <title>Neel Raj — Portfolio</title>
+
+    <!-- Theme init (before CSS to avoid flash) -->
+    <script>
+        (function () {
+            try {
+                var t = localStorage.getItem('portfolio-theme');
+                if (!t) { t = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'; }
+                document.documentElement.setAttribute('data-theme', t);
+            } catch (e) { document.documentElement.setAttribute('data-theme', 'dark'); }
+        })();
+    </script>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <meta name="theme-color" content="#0d1526">
+
+    <!-- Open Graph / social preview -->
+    <meta property="og:title" content="Neel Raj — Frontend Developer & CS Student">
+    <meta property="og:description" content="Personal portfolio showcasing projects, skills, and internship work.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://neelraj002005-svg.github.io/OIBSIP/WebDev-L1-PersonalPortfolio/">
+    <meta property="og:image" content="https://neelraj002005-svg.github.io/OIBSIP/WebDev-L1-PersonalPortfolio/og-image.png">
+    <meta name="twitter:card" content="summary_large_image">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div id="scroll-progress" aria-hidden="true"></div>
 
     <!-- ═══════════════ NAVIGATION ═══════════════ -->
     <header class="site-header" role="banner">
@@ -32,6 +56,16 @@
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+
+            <button class="theme-toggle" id="theme-toggle" aria-label="Switch to light theme">
+                <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                    <circle cx="12" cy="12" r="4.2"/>
+                    <path d="M12 2.5v2.2M12 19.3v2.2M4.3 4.3l1.6 1.6M18.1 18.1l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.3 19.7l1.6-1.6M18.1 5.9l1.6-1.6"/>
+                </svg>
+                <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5a8.5 8.5 0 1 0 11 11z"/>
+                </svg>
+            </button>
         </nav>
     </header>
 
@@ -49,7 +83,7 @@
                 <h1 id="hero-name">Neel Raj<span class="hero-dot">.</span></h1>
 
                 <p class="hero-role">
-                    <span class="role-highlight" id="typed-role"></span>
+                    <span class="role-highlight" id="typed-role">Frontend Developer</span>
                 </p>
 
                 <p class="hero-bio">
@@ -69,7 +103,7 @@
             <div class="hero-visual" aria-hidden="true">
                 <div class="avatar-ring">
                     <div class="avatar-inner">
-                        <img src="neel-raj-profile.png" alt="Neel Raj — Portrait" class="avatar-img" width="220" height="220" loading="eager">
+                        <img src="neel-raj-profile.jpg" alt="Neel Raj — Portrait" class="avatar-img" width="220" height="220" loading="eager">
                     </div>
                 </div>
                 <div class="hero-badge badge-1">HTML5</div>
@@ -105,21 +139,21 @@
 
                     <div class="about-cards">
                         <div class="info-card">
-                            <span class="info-icon" aria-hidden="true">🎓</span>
+                            <span class="info-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 9l10-4.5L22 9l-10 4.5L2 9z"/><path d="M6 11.5V16c0 1.5 2.7 3 6 3s6-1.5 6-3v-4.5"/><path d="M22 9v5"/></svg></span>
                             <div>
                                 <h3>Education</h3>
                                 <p>Computer Science Student</p>
                             </div>
                         </div>
                         <div class="info-card">
-                            <span class="info-icon" aria-hidden="true">💼</span>
+                            <span class="info-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7.5" width="18" height="12" rx="2"/><path d="M9 7.5V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1.5M3 12.5h18"/></svg></span>
                             <div>
                                 <h3>Internship</h3>
                                 <p>Oasis Infobyte SIP — Web Dev &amp; Designing</p>
                             </div>
                         </div>
                         <div class="info-card">
-                            <span class="info-icon" aria-hidden="true">📍</span>
+                            <span class="info-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="4.8"/><circle cx="12" cy="12" r="1.3" fill="currentColor" stroke="none"/></svg></span>
                             <div>
                                 <h3>Focus</h3>
                                 <p>Frontend Development &amp; UI/UX Design</p>
@@ -240,18 +274,8 @@
 
                     <!-- Project 1 — FocusFlow -->
                     <article class="project-card">
-                        <div class="project-preview focusflow-preview" aria-hidden="true">
-                            <div class="pp-bar">
-                                <span class="pp-dot r"></span>
-                                <span class="pp-dot y"></span>
-                                <span class="pp-dot g"></span>
-                                <span class="pp-url">focusflow</span>
-                            </div>
-                            <div class="pp-hero">
-                                <div class="pp-tag">YOUR TIME. YOUR GOALS.</div>
-                                <div class="pp-h1">Focus on What<br>Really Matters.</div>
-                                <div class="pp-btn">Explore →</div>
-                            </div>
+                        <div class="project-preview">
+                            <img src="project-focusflow.jpg" alt="FocusFlow landing page screenshot" width="1280" height="720" loading="lazy">
                         </div>
                         <div class="project-body">
                             <div class="project-meta">
@@ -278,21 +302,8 @@
 
                     <!-- Project 2 — Portfolio -->
                     <article class="project-card">
-                        <div class="project-preview portfolio-preview" aria-hidden="true">
-                            <div class="pp-bar">
-                                <span class="pp-dot r"></span>
-                                <span class="pp-dot y"></span>
-                                <span class="pp-dot g"></span>
-                                <span class="pp-url">neel-raj.portfolio</span>
-                            </div>
-                            <div class="pp-portfolio">
-                                <div class="pp-avatar">NR</div>
-                                <div class="pp-pname">Neel Raj</div>
-                                <div class="pp-prole">Frontend Developer</div>
-                                <div class="pp-pills">
-                                    <span>About</span><span>Skills</span><span>Projects</span>
-                                </div>
-                            </div>
+                        <div class="project-preview">
+                            <img src="project-portfolio.jpg" alt="Personal portfolio website screenshot" width="1280" height="720" loading="lazy">
                         </div>
                         <div class="project-body">
                             <div class="project-meta">
@@ -312,6 +323,35 @@
                                     Live Demo <span aria-hidden="true">↗</span>
                                 </a>
                                 <a href="https://github.com/neelraj002005-svg/OIBSIP/tree/main/WebDev-L1-PersonalPortfolio" target="_blank" rel="noopener noreferrer" class="link-code">
+                                    GitHub <span aria-hidden="true">↗</span>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Project 3 — ThermoShift -->
+                    <article class="project-card">
+                        <div class="project-preview">
+                            <img src="project-thermoshift.jpg" alt="ThermoShift temperature converter screenshot" width="1280" height="720" loading="lazy">
+                        </div>
+                        <div class="project-body">
+                            <div class="project-meta">
+                                <span class="project-tag">HTML5</span>
+                                <span class="project-tag">CSS3</span>
+                                <span class="project-tag">JavaScript</span>
+                                <span class="project-tag">Internship Task 3</span>
+                            </div>
+                            <h3>ThermoShift — Temperature Converter</h3>
+                            <p>
+                                An interactive temperature converter with a live thermometer whose
+                                mercury level and color follow the value. Converts between Celsius,
+                                Fahrenheit and Kelvin with input validation, including absolute-zero checks.
+                            </p>
+                            <div class="project-links">
+                                <a href="https://neelraj002005-svg.github.io/OIBSIP/WebDev-L1-TemperatureConverter/" target="_blank" rel="noopener noreferrer" class="link-live">
+                                    Live Demo <span aria-hidden="true">↗</span>
+                                </a>
+                                <a href="https://github.com/neelraj002005-svg/OIBSIP/tree/main/WebDev-L1-TemperatureConverter" target="_blank" rel="noopener noreferrer" class="link-code">
                                     GitHub <span aria-hidden="true">↗</span>
                                 </a>
                             </div>

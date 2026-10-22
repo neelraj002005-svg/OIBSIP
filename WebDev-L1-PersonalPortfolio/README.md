@@ -1,94 +1,68 @@
+# Neel Raj — Personal Portfolio
 
-# Neel Raj — Personal Portfolio Website
-
-> A premium, modern personal portfolio built for the Oasis Infobyte SIP Internship — Level 1, Task 2.
-
----
-
-## About the Project
-
-This is a fully responsive personal portfolio website for **Neel Raj**, a frontend developer and CS student. It showcases skills, internship projects, and contact information with a clean dark-navy aesthetic, smooth animations, and accessible design.
-
----
+This is my personal portfolio website, where I showcase my skills, projects, and learning journey as a Computer Science student interested in frontend development and UI/UX design.
 
 ## Features
 
-- **Sticky navigation** — smooth anchor scroll + hamburger menu on mobile
-- **Hero section** — professional developer portrait avatar with glowing animated halo ring, typing role animation, floating skill badges, dual CTA buttons
-- **About section** — personal bio with info cards (education, internship, focus)
-- **Skills section** — 6 beginner/learning cards (C Programming, C++, Python, HTML, CSS, JavaScript) with level badges and colour-coded icons
-- **Projects section** — two project cards with CSS thumbnail previews, tech tags, and links
-- **Contact section** — email link, GitHub and LinkedIn social buttons
-- **Footer** — copyright, internship task info, and footer navigation
-- **Scroll reveal** — elements animate in as you scroll (respects `prefers-reduced-motion`)
-- **Active nav tracking** — current section highlighted in navigation via IntersectionObserver
-- **Fully accessible** — semantic HTML5, ARIA labels, keyboard focus indicators, reduced-motion support
-
----
+- Responsive layout for desktop and mobile
+- Dark and light theme toggle
+- Typing animation in the hero section
+- About, Skills, Projects, and Contact sections
+- Project preview images
+- Mobile navigation menu
+- Links to project demos and source code
 
 ## Technologies Used
 
-| Technology | Purpose |
-|---|---|
-| HTML5 | Semantic document structure |
-| CSS3 | All styling — custom properties, Flexbox, Grid |
-| Vanilla JavaScript | Nav toggle, typing animation, scroll reveal |
-| Google Fonts (Inter) | Premium typography |
-| CSS Custom Properties | Consistent design tokens |
-| Media Queries | Responsive breakpoints |
+- HTML5
+- CSS3
+- JavaScript
 
----
+## Projects
+
+### FocusFlow
+A productivity website with a focus timer, task manager, and progress tracking features.
+
+### Personal Portfolio
+A responsive website to showcase my skills, projects, and contact information.
+
+### ThermoShift
+A temperature converter that supports Celsius, Fahrenheit, and Kelvin.
 
 ## Project Structure
 
 ```text
 WebDev-L1-PersonalPortfolio/
-├── index.html    ← All sections and markup
-├── style.css     ← Complete styles (design tokens, layout, responsive)
-├── script.js     ← Nav toggle, typing animation, scroll reveal
-└── README.md     ← This file
+├── index.html
+├── style.css
+├── script.js
+├── favicon.svg
+├── neel-raj-profile.jpg
+├── project-focusflow.jpg
+├── project-portfolio.jpg
+├── project-thermoshift.jpg
+└── README.md
 ```
 
----
+*Note: The file names above should match the actual files in your project folder.*
 
-## How to Run Locally
+## Run Locally
 
-1. Clone or download the repository
-2. Open the `WebDev-L1-PersonalPortfolio/` folder
-3. Open `index.html` in any modern web browser — no server or build step required
+1. Open the project folder in Visual Studio Code.
+2. Install the Live Server extension if needed.
+3. Right-click `index.html`.
+4. Select **Open with Live Server** to view the website in your browser.
 
-> **Note:** An internet connection is required for Google Fonts (Inter). The page falls back to `system-ui` / `Arial` when offline.
+## Live Portfolio
 
----
-
-## Responsive Breakpoints
-
-| Viewport | Layout |
-|---|---|
-| > 900px | Two-column hero, 3-col skills, 2-col projects |
-| 641–900px | Single-column hero, 2-col skills, 1-col projects |
-| ≤ 640px | Mobile layout, hamburger navigation, 1-col skills |
-
----
-
-## Live Demo
-
-🔗 [Click here to view Neel Raj's Portfolio](https://neelraj002005-svg.github.io/OIBSIP/WebDev-L1-PersonalPortfolio/)
-
----
-
-## Internship
-
-**Programme:** Oasis Infobyte SIP Internship  
-**Track:** Web Development & Designing  
-**Level:** Level 1  
-**Task:** Task 2 — Personal Portfolio Website
-
----
+[View Portfolio](https://neelraj002005-svg.github.io/OIBSIP/WebDev-L1-PersonalPortfolio/)
 
 ## Author
 
-**Neel Raj**  
-Email: [neelraj002005@gmail.com](mailto:neelraj002005@gmail.com)  
-GitHub: [neelraj002005-svg](https://github.com/neelraj002005-svg)  
-LinkedIn: [neel-raj-03b5373b9](https://www.linkedin.com/in/neel-raj-03b5373b9/?isSelfProfile=true)
+**Neel Raj**
+
+GitHub: [neelraj002005-svg](https://github.com/neelraj002005-svg)
+
+## Internship
+
+Oasis Infobyte — Web Development & Designing Internship, Level 1.
